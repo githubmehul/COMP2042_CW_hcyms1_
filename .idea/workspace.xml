@@ -4,26 +4,7 @@
     <option name="SCOPE_TYPE" value="3" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9cce79c3-0458-4f64-9bfa-b4f219fb403b" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Brick_Destroy-master/src/Ball.java" beforeDir="false" afterPath="$PROJECT_DIR$/Brick_Destroy-master/src/controller/BallController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Brick_Destroy-master/src/Brick.java" beforeDir="false" afterPath="$PROJECT_DIR$/Brick_Destroy-master/src/controller/BrickController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Brick_Destroy-master/src/CementBrick.java" beforeDir="false" afterPath="$PROJECT_DIR$/Brick_Destroy-master/src/model/CementBrickModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Brick_Destroy-master/src/ClayBrick.java" beforeDir="false" afterPath="$PROJECT_DIR$/Brick_Destroy-master/src/model/ClayBrickModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Brick_Destroy-master/src/DebugConsole.java" beforeDir="false" afterPath="$PROJECT_DIR$/Brick_Destroy-master/src/view/DebugConsoleView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Brick_Destroy-master/src/DebugPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/Brick_Destroy-master/src/controller/DebugPanelController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Brick_Destroy-master/src/GameBoard.java" beforeDir="false" afterPath="$PROJECT_DIR$/Brick_Destroy-master/src/view/GameBoardView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Brick_Destroy-master/src/GameFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/Brick_Destroy-master/src/model/GameFrameModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Brick_Destroy-master/src/GraphicsMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/Brick_Destroy-master/src/game/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Brick_Destroy-master/src/HomeMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/Brick_Destroy-master/src/view/HomeMenuView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Brick_Destroy-master/src/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/Brick_Destroy-master/src/model/PlayerModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Brick_Destroy-master/src/RubberBall.java" beforeDir="false" afterPath="$PROJECT_DIR$/Brick_Destroy-master/src/model/RubberBallModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Brick_Destroy-master/src/SteelBrick.java" beforeDir="false" afterPath="$PROJECT_DIR$/Brick_Destroy-master/src/model/SteelBrickModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Brick_Destroy-master/src/Wall.java" beforeDir="false" afterPath="$PROJECT_DIR$/Brick_Destroy-master/src/model/WallModel.java" afterDir="false" />
-    </list>
+    <list default="true" id="9cce79c3-0458-4f64-9bfa-b4f219fb403b" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -95,7 +76,14 @@
       <option name="project" value="LOCAL" />
       <updated>1635563495280</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Reorganizing Class Files , Creating New Packages and Resource Folder">
+      <created>1635837904735</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1635837904735</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -112,7 +100,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Initial Commit" />
-    <option name="LAST_COMMIT_MESSAGE" value="Initial Commit" />
+    <MESSAGE value="Reorganizing Class Files , Creating New Packages and Resource Folder" />
+    <option name="LAST_COMMIT_MESSAGE" value="Reorganizing Class Files , Creating New Packages and Resource Folder" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
