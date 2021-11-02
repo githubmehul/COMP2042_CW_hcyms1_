@@ -15,35 +15,36 @@
  *  You should have received a copy of the GNU General Public License
  *  along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package test;
+package model;
+
+import view.GameBoardView;
+import view.HomeMenuView;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.datatransfer.StringSelection;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowFocusListener;
-import java.awt.event.WindowListener;
 
 
-public class GameFrame extends JFrame implements WindowFocusListener {
+public class GameFrameModel extends JFrame implements WindowFocusListener {
 
     private static final String DEF_TITLE = "Brick Destroy";
 
-    private GameBoard gameBoard;
-    private HomeMenu homeMenu;
+    private GameBoardView gameBoard;
+    private HomeMenuView homeMenu;
 
     private boolean gaming;
 
-    public GameFrame(){
+    public GameFrameModel(){
         super();
 
         gaming = false;
 
         this.setLayout(new BorderLayout());
 
-        gameBoard = new GameBoard(this);
+        gameBoard = new GameBoardView(this);
 
-        homeMenu = new HomeMenu(this,new Dimension(450,300));
+        homeMenu = new HomeMenuView(this,new Dimension(450,300));
 
         this.add(homeMenu,BorderLayout.CENTER);
 

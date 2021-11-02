@@ -1,4 +1,4 @@
-package test;
+package controller;
 
 import java.awt.*;
 import java.awt.Point;
@@ -10,7 +10,7 @@ import java.util.Random;
  * Created by filippo on 04/09/16.
  *
  */
-abstract public class Brick  {
+abstract public class BrickController {
 
     public static final int MIN_CRACK = 1;
     public static final int DEF_CRACK_DEPTH = 1;
@@ -63,8 +63,8 @@ abstract public class Brick  {
             crack.reset();
         }
 
-        protected void makeCrack(Point2D point, int direction){
-            Rectangle bounds = Brick.this.brickFace.getBounds();
+        public void makeCrack(Point2D point, int direction){
+            Rectangle bounds = BrickController.this.brickFace.getBounds();
 
             Point impact = new Point((int)point.getX(),(int)point.getY());
             Point start = new Point();
@@ -177,7 +177,7 @@ abstract public class Brick  {
     private static Random rnd;
 
     private String name;
-    Shape brickFace;
+    public Shape brickFace;
 
     private Color border;
     private Color inner;
@@ -188,7 +188,7 @@ abstract public class Brick  {
     private boolean broken;
 
 
-    public Brick(String name, Point pos,Dimension size,Color border,Color inner,int strength){
+    public BrickController(String name, Point pos, Dimension size, Color border, Color inner, int strength){
         rnd = new Random();
         broken = false;
         this.name = name;
@@ -221,7 +221,7 @@ abstract public class Brick  {
     }
 
 
-    public final int findImpact(Ball b){
+    public final int findImpact(BallController b){
         if(broken)
             return 0;
         int out  = 0;

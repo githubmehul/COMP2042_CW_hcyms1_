@@ -15,14 +15,14 @@
  *  You should have received a copy of the GNU General Public License
  *  along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package test;
+package model;
+
+import controller.BallController;
 
 import java.awt.*;
-import java.awt.geom.Point2D;
-import java.awt.geom.Rectangle2D;
 
 
-public class Player {
+public class PlayerModel {
 
 
     public static final Color BORDER_COLOR = Color.GREEN.darker().darker();
@@ -37,7 +37,7 @@ public class Player {
     private int max;
 
 
-    public Player(Point ballPoint,int width,int height,Rectangle container) {
+    public PlayerModel(Point ballPoint, int width, int height, Rectangle container) {
         this.ballPoint = ballPoint;
         moveAmount = 0;
         playerFace = makeRectangle(width, height);
@@ -51,7 +51,7 @@ public class Player {
         return  new Rectangle(p,new Dimension(width,height));
     }
 
-    public boolean impact(Ball b){
+    public boolean impact(BallController b){
         return playerFace.contains(b.getPosition()) && playerFace.contains(b.down) ;
     }
 

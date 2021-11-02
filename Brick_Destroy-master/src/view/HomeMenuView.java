@@ -15,7 +15,9 @@
  *  You should have received a copy of the GNU General Public License
  *  along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package test;
+package view;
+
+import model.GameFrameModel;
 
 import javax.swing.*;
 import java.awt.*;
@@ -26,7 +28,7 @@ import java.awt.font.FontRenderContext;
 import java.awt.geom.Rectangle2D;
 
 
-public class HomeMenu extends JComponent implements MouseListener, MouseMotionListener {
+public class HomeMenuView extends JComponent implements MouseListener, MouseMotionListener {
 
     private static final String GREETINGS = "Welcome to:";
     private static final String GAME_TITLE = "Brick Destroy";
@@ -56,13 +58,13 @@ public class HomeMenu extends JComponent implements MouseListener, MouseMotionLi
     private Font creditsFont;
     private Font buttonFont;
 
-    private GameFrame owner;
+    private GameFrameModel owner;
 
     private boolean startClicked;
     private boolean menuClicked;
 
 
-    public HomeMenu(GameFrame owner,Dimension area){
+    public HomeMenuView(GameFrameModel owner, Dimension area){
 
         this.setFocusable(true);
         this.requestFocusInWindow();

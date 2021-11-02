@@ -15,14 +15,16 @@
  *  You should have received a copy of the GNU General Public License
  *  along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package test;
+package model;
+
+import controller.BrickController;
 
 import java.awt.*;
 import java.awt.geom.Point2D;
 import java.util.Random;
 
 
-public class SteelBrick extends Brick {
+public class SteelBrickModel extends BrickController {
 
     private static final String NAME = "Steel Brick";
     private static final Color DEF_INNER = new Color(203, 203, 201);
@@ -33,7 +35,7 @@ public class SteelBrick extends Brick {
     private Random rnd;
     private Shape brickFace;
 
-    public SteelBrick(Point point, Dimension size){
+    public SteelBrickModel(Point point, Dimension size){
         super(NAME,point,size,DEF_BORDER,DEF_INNER,STEEL_STRENGTH);
         rnd = new Random();
         brickFace = super.brickFace;
@@ -42,6 +44,7 @@ public class SteelBrick extends Brick {
 
     @Override
     protected Shape makeBrickFace(Point pos, Dimension size) {
+
         return new Rectangle(pos,size);
     }
 

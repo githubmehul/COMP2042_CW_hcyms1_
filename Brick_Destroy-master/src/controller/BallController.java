@@ -1,24 +1,20 @@
-package test;
+package controller;
 
 import java.awt.*;
 import java.awt.geom.Point2D;
 import java.awt.geom.RectangularShape;
 
-/**
- * Created by filippo on 04/09/16.
- * Hello
- *
- */
-abstract public class Ball {
+
+abstract public class BallController {
 
     private Shape ballFace;
 
     private Point2D center;
 
-    Point2D up;
-    Point2D down;
-    Point2D left;
-    Point2D right;
+    public Point2D up;
+    public Point2D down;
+    public Point2D left;
+    public Point2D right;
 
     private Color border;
     private Color inner;
@@ -26,7 +22,7 @@ abstract public class Ball {
     private int speedX;
     private int speedY;
 
-    public Ball(Point2D center,int radiusA,int radiusB,Color inner,Color border){
+    public BallController(Point2D center, int radiusA, int radiusB, Color inner, Color border){
         this.center = center;
 
         up = new Point2D.Double();
@@ -62,7 +58,6 @@ abstract public class Ball {
 
         ballFace = tmp;
     }
-
     public void setSpeed(int x,int y){
         speedX = x;
         speedY = y;

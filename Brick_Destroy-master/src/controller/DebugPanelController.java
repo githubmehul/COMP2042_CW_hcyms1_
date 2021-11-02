@@ -15,7 +15,9 @@
  *  You should have received a copy of the GNU General Public License
  *  along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package test;
+package controller;
+
+import model.WallModel;
 
 import javax.swing.*;
 import javax.swing.event.ChangeListener;
@@ -24,7 +26,7 @@ import java.awt.event.ActionListener;
 
 
 
-public class DebugPanel extends JPanel {
+public class DebugPanelController extends JPanel {
 
     private static final Color DEF_BKG = Color.WHITE;
 
@@ -35,9 +37,9 @@ public class DebugPanel extends JPanel {
     private JSlider ballXSpeed;
     private JSlider ballYSpeed;
 
-    private Wall wall;
+    private WallModel wall;
 
-    public DebugPanel(Wall wall){
+    public DebugPanelController(WallModel wall){
 
         this.wall = wall;
 
