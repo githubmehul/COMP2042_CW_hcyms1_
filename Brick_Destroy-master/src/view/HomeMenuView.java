@@ -1,20 +1,3 @@
-/*
- *  Brick Destroy - A simple Arcade video game
- *   Copyright (C) 2017  Filippo Ranza
- *
- *  This program is free software: you can redistribute it and/or modify
- *  it under the terms of the GNU General Public License as published by
- *  the Free Software Foundation, either version 3 of the License, or
- *  (at your option) any later version.
- *
- *  This program is distributed in the hope that it will be useful,
- *  but WITHOUT ANY WARRANTY; without even the implied warranty of
- *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- *  GNU General Public License for more details.
- *
- *  You should have received a copy of the GNU General Public License
- *  along with this program.  If not, see <http://www.gnu.org/licenses/>.
- */
 package view;
 
 import model.GameFrameModel;
@@ -27,128 +10,143 @@ import java.awt.event.MouseMotionListener;
 import java.awt.font.FontRenderContext;
 import java.awt.geom.Rectangle2D;
 
-
+/***
+ * HomeMenuView Class extends JComponent and implements MouseListener and MouseMotionListener
+ * to generate the HomeMenu of the Game
+ */
 public class HomeMenuView extends JComponent implements MouseListener, MouseMotionListener {
-
+    //Static Variables for the strings
     private static final String GREETINGS = "Welcome to:";
     private static final String GAME_TITLE = "Brick Destroy";
     private static final String CREDITS = "Version 0.1";
     private static final String START_TEXT = "Start";
     private static final String MENU_TEXT = "Exit";
-
+    //Static Variables to Specify the Colors in the Home Menu
     private static final Color BG_COLOR = Color.GREEN.darker();
     private static final Color BORDER_COLOR = new Color(200,8,21); //Venetian Red
     private static final Color DASH_BORDER_COLOR = new  Color(255, 216, 0);//school bus yellow
     private static final Color TEXT_COLOR = new Color(16, 52, 166);//egyptian blue
     private static final Color CLICKED_BUTTON_COLOR = BG_COLOR.brighter();
     private static final Color CLICKED_TEXT = Color.WHITE;
-    private static final int BORDER_SIZE = 5;
-    private static final float[] DASHES = {12,6};
+    private static final int BORDER_SIZE = 10;
+    private static final float[] DASHES = {20,20};//the red dashes on the border
 
+    //The Menu Board
     private Rectangle menuFace;
+    //The Start Button
     private Rectangle startButton;
+    //The Exit Button
     private Rectangle menuButton;
 
+    //Statics Stroke Attribute
+    private BasicStroke borderStoke = new BasicStroke(BORDER_SIZE,BasicStroke.CAP_ROUND,BasicStroke.JOIN_ROUND,0,DASHES,0);
+    private BasicStroke borderStoke_noDashes = new BasicStroke(BORDER_SIZE,BasicStroke.CAP_ROUND,BasicStroke.JOIN_ROUND);
 
-    private BasicStroke borderStoke;
-    private BasicStroke borderStoke_noDashes;
-
-    private Font greetingsFont;
-    private Font gameTitleFont;
-    private Font creditsFont;
+    //Font of the Text in the Home Menu
+    private Font greetingsFont = new Font("Noto Mono",Font.PLAIN,25);
+    private Font gameTitleFont = new Font("Noto Mono",Font.BOLD,40);
+    private Font creditsFont = new Font("Monospaced",Font.PLAIN,10);
     private Font buttonFont;
 
+    //The JFrame Owner
     private GameFrameModel owner;
 
+    //Boolean to mark when the start is clicked
     private boolean startClicked;
+    //Boolean to mark when the exit is clicked
     private boolean menuClicked;
 
 
+    /**
+     * HomeMenuView CConstructor:
+     * Implements the HomeMenuView Characteristics
+     * @param owner
+     * @param area
+     */
     public HomeMenuView(GameFrameModel owner, Dimension area){
-
         this.setFocusable(true);
         this.requestFocusInWindow();
-
         this.addMouseListener(this);
         this.addMouseMotionListener(this);
-
         this.owner = owner;
-
-
-
+        //Define the Menu Area
         menuFace = new Rectangle(new Point(0,0),area);
         this.setPreferredSize(area);
-
+        //Define the Dimension of the Button
         Dimension btnDim = new Dimension(area.width / 3, area.height / 12);
+        //Associate Dimension with the Start Button
         startButton = new Rectangle(btnDim);
+        //Associate Dimension with the Exit Button
         menuButton = new Rectangle(btnDim);
-
-        borderStoke = new BasicStroke(BORDER_SIZE,BasicStroke.CAP_ROUND,BasicStroke.JOIN_ROUND,0,DASHES,0);
-        borderStoke_noDashes = new BasicStroke(BORDER_SIZE,BasicStroke.CAP_ROUND,BasicStroke.JOIN_ROUND);
-
-        greetingsFont = new Font("Noto Mono",Font.PLAIN,25);
-        gameTitleFont = new Font("Noto Mono",Font.BOLD,40);
-        creditsFont = new Font("Monospaced",Font.PLAIN,10);
+        //Font of the Button
         buttonFont = new Font("Monospaced",Font.PLAIN,startButton.height-2);
-
-
-
     }
 
 
+    /**
+     * paint Method:
+     * To paint the output the Home Menu
+     * @param g
+     */
     public void paint(Graphics g){
         drawMenu((Graphics2D)g);
     }
 
 
+    /**
+     * drawMenu Method:
+     * To draw the Home Menu Contents
+     * @param g2d
+     */
     public void drawMenu(Graphics2D g2d){
-
+        //Calling the drawContainer method to create the container
         drawContainer(g2d);
-
-        /*
-        all the following method calls need a relative
-        painting directly into the HomeMenu rectangle,
-        so the translation is made here so the other methods do not do that.
-         */
         Color prevColor = g2d.getColor();
         Font prevFont = g2d.getFont();
-
+        //x and y coordinates of the contents of the menu
         double x = menuFace.getX();
         double y = menuFace.getY();
-
         g2d.translate(x,y);
 
-        //methods calls
+        //Method Call to Draw the Text
         drawText(g2d);
+        //Method Call to Draw the Button
         drawButton(g2d);
-        //end of methods calls
-
         g2d.translate(-x,-y);
         g2d.setFont(prevFont);
         g2d.setColor(prevColor);
     }
 
+    /**
+     * drawContainer Method:
+     * To implement the container characteristics
+     * @param g2d
+     */
     private void drawContainer(Graphics2D g2d){
         Color prev = g2d.getColor();
-
+        // Set the Menu to the Background Color
         g2d.setColor(BG_COLOR);
+        //Fill the Menu Area with the Color
         g2d.fill(menuFace);
-
+        //Fill the MenuFace with the Border Dashes
         Stroke tmp = g2d.getStroke();
-
         g2d.setStroke(borderStoke_noDashes);
         g2d.setColor(DASH_BORDER_COLOR);
         g2d.draw(menuFace);
-
+        //Fill the MenuFace with the Border Color
         g2d.setStroke(borderStoke);
         g2d.setColor(BORDER_COLOR);
         g2d.draw(menuFace);
 
         g2d.setStroke(tmp);
-
         g2d.setColor(prev);
     }
 
+    /**
+     * drawText Method:
+     *Implements the Greetings , GameTitle , and various text at the home menu
+     * @param g2d
+     */
     private void drawText(Graphics2D g2d){
 
         g2d.setColor(TEXT_COLOR);
@@ -182,6 +180,11 @@ public class HomeMenuView extends JComponent implements MouseListener, MouseMoti
 
     }
 
+    /**
+     * drawButton Method:
+     * Implements the Button for the startButton and Exit Button
+     * @param g2d
+     */
     private void drawButton(Graphics2D g2d){
 
         FontRenderContext frc = g2d.getFontRenderContext();
@@ -250,11 +253,16 @@ public class HomeMenuView extends JComponent implements MouseListener, MouseMoti
 
     }
 
+    /**
+     * mouseClicked Method:
+     * To mention the function corresponding to the click of the mouse in the homemenu
+     * @param mouseEvent
+     */
     @Override
     public void mouseClicked(MouseEvent mouseEvent) {
         Point p = mouseEvent.getPoint();
         if(startButton.contains(p)){
-           owner.enableGameBoard();
+            owner.enableGameBoard();
 
         }
         else if(menuButton.contains(p)){
@@ -263,6 +271,10 @@ public class HomeMenuView extends JComponent implements MouseListener, MouseMoti
         }
     }
 
+    /**mousePressed Method:
+     * Implements the Functionality when the buttons are pressed but not released
+     * @param mouseEvent
+     */
     @Override
     public void mousePressed(MouseEvent mouseEvent) {
         Point p = mouseEvent.getPoint();
@@ -277,6 +289,11 @@ public class HomeMenuView extends JComponent implements MouseListener, MouseMoti
         }
     }
 
+    /**
+     * mouseReleased Method:
+     * Implements the functionality when the mouse is released from the button
+     * @param mouseEvent
+     */
     @Override
     public void mouseReleased(MouseEvent mouseEvent) {
         if(startClicked ){
@@ -305,6 +322,11 @@ public class HomeMenuView extends JComponent implements MouseListener, MouseMoti
 
     }
 
+    /**
+     * mouseMoved Method:
+     * Implements the functionality when the cursor hovers on the button
+     * @param mouseEvent
+     */
     @Override
     public void mouseMoved(MouseEvent mouseEvent) {
         Point p = mouseEvent.getPoint();
